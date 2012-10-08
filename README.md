@@ -6,6 +6,7 @@ Link any desired template into ~/Library/Developer/Xcode/Templates/Project Templ
 
 Example:
 	mkdir -p "~/Library/Developer/Xcode/Templates/Project Templates/Application"
+	
 	ln -s `pwd`/DeveloperTowniOS.xctemplate" ~/Library/Developer/Xcode/Templates/Project\ Templates/Application/DeveloperTowniOS.xctemplate
 
 ## DeveloperTowniOS.xctemplate ("DT Single View" in XCode)
