@@ -78,6 +78,17 @@ pod &quot;TestFlightSDK&quot;, &quot;1.1&quot;
 					</dict>
 					<key>Definitions</key>
 					<dict>
+						<key>___PACKAGENAME___-Prefix.pch:objC:aliasNSLog</key>
+						<dict>
+							<key>Indent</key>
+							<integer>1</integer>
+							<key>Beginning</key>
+							<string>#ifdef TESTFLIGHT
+    #define NSLog(__FORMAT__, ...) TFLog((@&quot;%s [Line %d] &quot; __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+    #define NSLog(__FORMAT__, ...) NSLog((@&quot;%s [Line %d] &quot; __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#endif</string>
+						</dict>
 						<key>___VARIABLE_classPrefix:identifier___AppDelegate.h:methods:takeflight</key>
 						<string>-(void)launchTestflight;</string>
 						<key>___VARIABLE_classPrefix:identifier___AppDelegate.m:takeflight</key>
@@ -127,6 +138,7 @@ pod &quot;TestFlightSDK&quot;, &quot;1.1&quot;
 						<string>___VARIABLE_classPrefix:identifier___AppDelegate.m:takeflight</string>
 						<string>___VARIABLE_classPrefix:identifier___AppDelegate.m:applicationdidFinishLaunchingWithOptions:takeflight</string>
 						<string>___PACKAGENAME___-Prefix.pch:objC:takeflight</string>
+						<string>___PACKAGENAME___-Prefix.pch:objC:aliasNSLog</string>
 					</array>
 				</dict>
 			</dict>
