@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Name</key>
+	<string>DT Single View</string>
+	<key>Ancestors</key>
+	<array>
+		<string>com.apple.dt.unit.singleViewApplication</string>
+	</array>
+	<key>Concrete</key>
+	<true/>
+	<key>Definitions</key>
+	<dict>
+		<key>../.gitignore</key>
+		<dict>
+			<key>Path</key>
+			<string>gitignore</string>
+			<key>Group</key>
+			<string>Environment Configuration</string>
+		</dict>
+		<key>../.rvmrc</key>
+		<dict>
+			<key>Group</key>
+			<string>Environment Configuration</string>
+			<key>Path</key>
+			<string>rvmrc</string>
+		</dict>
+		<key>../Podfile</key>
+		<dict>
+			<key>Group</key>
+			<string>Environment Configuration</string>
+			<key>Beginning</key>
+			<string>platform :ios, &quot;5.0&quot;
+
+pod &quot;MRCEnumerable&quot;
+pod &quot;TestFlightSDK&quot;, &quot;1.1&quot;
+</string>
+		</dict>
+		<key>../Gemfile</key>
+		<dict>
+			<key>Path</key>
+			<string>Gemfile</string>
+			<key>Group</key>
+			<string>Environment Configuration</string>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>based on single view application, takes a testflight team token, provides .rvmrc, Gemfile, Podfile and augments app did launch with testflight initialization.</string>
+	<key>Identifier</key>
+	<string>com.developertown.ios</string>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>Nodes</key>
+	<array>
+		<string>../Podfile</string>
+		<string>../.gitignore</string>
+		<string>../Gemfile</string>
+		<string>../.rvmrc</string>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Units</key>
+			<dict>
+				<key>true</key>
+				<dict>
+					<key>Definitions</key>
+					<dict>
+						<key>___VARIABLE_classPrefix:identifier___AppDelegate.h:methods:takeflight</key>
+						<string>-(void)launchTestflight;</string>
+						<key>___VARIABLE_classPrefix:identifier___AppDelegate.m:takeflight</key>
+						<dict>
+							<key>Beginning</key>
+							<string>-(void)launchTestflight{	
+    NSString *deviceId = nil;
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(identifierForVendor)]){
+        deviceId = [[UIDevice currentDevice] identifierForVendor].UUIDString;
+    }
+    else{
+#ifdef DEBUG
+        deviceId = [[UIDevice currentDevice] uniqueIdentifier];
+#endif
+    }
+    
+    if(deviceId){
+        [TestFlight setDeviceIdentifier:deviceId];
+    }
+</string>
+							<key>End</key>
+							<string>    [TestFlight takeOff:@&quot;___VARIABLE_testflightToken___&quot;];
+}</string>
+							<key>Indent</key>
+							<integer>1</integer>
+						</dict>
+						<key>___VARIABLE_classPrefix:identifier___AppDelegate.m:applicationdidFinishLaunchingWithOptions:takeflight</key>
+						<dict>
+							<key>Indent</key>
+							<integer>1</integer>
+							<key>Beginning</key>
+							<string>[self launchTestflight];</string>
+						</dict>
+						<key>___PACKAGENAME___-Prefix.pch:objC:takeflight</key>
+						<dict>
+							<key>Indent</key>
+							<integer>1</integer>
+							<key>Beginning</key>
+							<string>#import &lt;TestFlightSDK/TestFlight.h&gt;</string>
+						</dict>
+					</dict>
+					<key>Nodes</key>
+					<array>
+						<string>___VARIABLE_classPrefix:identifier___AppDelegate.h:methods:takeflight</string>
+						<string>___VARIABLE_classPrefix:identifier___AppDelegate.m:takeflight</string>
+						<string>___VARIABLE_classPrefix:identifier___AppDelegate.m:applicationdidFinishLaunchingWithOptions:takeflight</string>
+						<string>___PACKAGENAME___-Prefix.pch:objC:takeflight</string>
+					</array>
+				</dict>
+			</dict>
+			<key>Default</key>
+			<string>true</string>
+			<key>Name</key>
+			<string>Include Testglight Team Token</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Identifier</key>
+			<string>includeTestflight</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>includeUnitTests</string>
+			<key>Units</key>
+			<dict>
+				<key>true</key>
+				<dict>
+					<key>Nodes</key>
+					<array>
+						<string>../Podfile:tests</string>
+					</array>
+					<key>Definitions</key>
+					<dict>
+						<key>../Podfile:tests</key>
+						<string>target ___PACKAGENAME___Test, :exclusive =&gt; true do
+	pod &quot;OCMock&quot;, &quot;2.0.1&quot;
+end
+</string>
+					</dict>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Placeholder</key>
+			<string>{TestFlight SDK Team Token}</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>RequiredOptions</key>
+			<dict>
+				<key>includeTestflight</key>
+				<string>true</string>
+			</dict>
+			<key>Required</key>
+			<true/>
+			<key>Identifier</key>
+			<string>testflightToken</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Name</key>
+			<string>Testflight Team Token</string>
+		</dict>
+	</array>
+	<key>SortOrder</key>
+	<integer>1</integer>
+</dict>
+</plist>
