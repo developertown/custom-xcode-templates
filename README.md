@@ -20,5 +20,6 @@ Includes the following non-standarf files:
 *	Podfile (specifies MCREnumerable, TestFlightSDK and OCMock if unit tests are included)
 
 After creating the project, close it in XCode and then open it's directory in Terminal, run the following commands:
+
 1.		bundle
 2.		pod install
