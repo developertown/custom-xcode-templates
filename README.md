@@ -1,5 +1,11 @@
 #custom-xcode-templates
 
+## Pre reqs
+
+1.	homebrew
+2.	rvm
+
+
 ## Installation
 
 Link any desired template into ~/Library/Developer/Xcode/Templates/Project Templates/Application
@@ -21,5 +27,5 @@ Includes the following non-standarf files:
 
 After creating the project, close it in XCode and then open it's directory in Terminal, run the following commands:
 
-1.		bundle
-2.		pod install
+	bundle
+	pod install
