@@ -23,7 +23,7 @@ Includes the following non-standarf files:
 *	.gitignore
 *	.rvmrc (using ruby 1.9.3 default gemset)
 *	Gemfile (specifies cocoapods)
-*	Podfile (specifies MCREnumerable, TestFlightSDK and OCMock if unit tests are included)
+*	Podfile (specifies MRCEnumerable, TestFlightSDK and OCMock if unit tests are included)
 
 After creating the project, close it in XCode and then open it's directory in Terminal, run the following commands:
 
