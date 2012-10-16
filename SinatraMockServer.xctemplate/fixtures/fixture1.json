@@ -1,0 +1,9 @@
+{
+    "name":"test server",
+    "powered_by":[
+        "ruby",
+        "gems",
+        "RestKit",
+        "heroku"
+    ]
+}

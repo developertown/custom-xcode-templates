@@ -65,17 +65,31 @@ pod &quot;TestFlightSDK&quot;, &quot;1.1&quot;
 			<dict>
 				<key>true</key>
 				<dict>
-					<key>Project</key>
-					<dict>
-						<key>Configurations</key>
+					<key>Components</key>
+					<array>
 						<dict>
-							<key>Debug</key>
-							<dict>
-								<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-								<string>DEBUG=1 TESTFLIGHT $(inherited)</string>
-							</dict>
+							<key>Identifier</key>
+							<string>com.developertown.sinatraMockServer</string>
+							<key>Name</key>
+							<string>test_server</string>
 						</dict>
-					</dict>
+					</array>
+				</dict>
+			</dict>
+			<key>Default</key>
+			<string>true</string>
+			<key>Name</key>
+			<string>Include sinatra mock server</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Identifier</key>
+			<string>includeMockServer</string>
+		</dict>
+		<dict>
+			<key>Units</key>
+			<dict>
+				<key>true</key>
+				<dict>
 					<key>Definitions</key>
 					<dict>
 						<key>___PACKAGENAME___-Prefix.pch:objC:aliasNSLog</key>

@@ -1,0 +1,12 @@
+require 'restkit/rake'
+
+RestKit::Rake::ServerTask.new do |t|
+  t.port = 4567
+  t.pid_file = 'server.pid'
+  t.rackup_file = 'config.ru'
+  t.log_file = 'server.log'
+
+  t.adapter(:thin) do |thin|
+    thin.config_file = 'thin.yml'
+  end
+end
