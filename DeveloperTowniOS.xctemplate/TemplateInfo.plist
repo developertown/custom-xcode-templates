@@ -12,6 +12,13 @@
 	<true/>
 	<key>Definitions</key>
 	<dict>
+		<key>../RunPlatformUnitTests</key>
+		<dict>
+			<key>Group</key>
+			<string>Environment Configuration</string>
+			<key>Path</key>
+			<string>RunPlatformUnitTests</string>
+		</dict>
 		<key>../.gitignore</key>
 		<dict>
 			<key>Path</key>
@@ -53,6 +60,7 @@ pod &quot;TestFlightSDK&quot;, &quot;1.1&quot;
 	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
 	<key>Nodes</key>
 	<array>
+		<string>../RunPlatformUnitTests</string>
 		<string>../Podfile</string>
 		<string>../.gitignore</string>
 		<string>../Gemfile</string>
